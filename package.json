@@ -1,0 +1,40 @@
+{
+  "name": "react-modules-demo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack serve --env development",
+    "build": "webpack --env production",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "author": "Vladimir Lewandowski (@vovaspace)",
+  "license": "MIT",
+  "dependencies": {
+    "inversify": "^5.0.1",
+    "mobx": "^6.0.3",
+    "mobx-react-lite": "^3.1.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/lodash.uniqueid": "^4.0.6",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "ts-loader": "^8.0.7",
+    "typescript": "^4.0.5",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
