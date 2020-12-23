@@ -2,7 +2,7 @@ import { injectable, inject } from 'inversify';
 import { flow, makeObservable, observable } from 'mobx';
 
 import { SYMBOLS } from '../symbols.ioc';
-import { UuidGetter } from '../utils';
+import type { UuidGetter } from '../utils';
 import type { OrderService } from '../services';
 
 export enum OrderStatusEnum {
@@ -18,6 +18,7 @@ export interface OrderModel {
   status: OrderStatusEnum;
   createdAt: Date,
   toggleStatus(): void;
+  updateName(name: string): void;
 }
 
 @injectable()
@@ -43,12 +44,19 @@ export class OrderModel implements OrderModel {
       name: observable,
       status: observable,
       toggleStatus: flow,
+      updateName: flow,
     });
   }
 
   public* toggleStatus() {
     this.isLoading = true;
     this.status = yield this.orderService.toggle(this.status);
+    this.isLoading = false;
+  }
+
+  public* updateName(name: string) {
+    this.isLoading = true;
+    this.name = yield this.orderService.updateName(name);
     this.isLoading = false;
   }
 }

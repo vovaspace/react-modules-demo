@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { useInjection } from '@core/react.ioc';
 
 import { SYMBOLS } from '../../symbols.ioc';
-import { OrderListModel, OrderEditingModel } from '../../models';
+import type { OrderListModel, OrderEditingModel } from '../../models';
 import { Order } from '../Order';
 
 export const OrderList: FunctionComponent = observer(() => {

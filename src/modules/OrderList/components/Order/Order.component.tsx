@@ -2,10 +2,10 @@ import React, { FunctionComponent } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { useInjection } from '@core/react.ioc';
-import { OrderModel } from '@core/models';
+import type { OrderModel } from '@core/models';
 
 import { SYMBOLS } from '../../symbols.ioc';
-import { OrderEditingModel } from '../../models';
+import type { OrderEditingModel } from '../../models';
 
 export interface OrderProps {
   order: OrderModel;

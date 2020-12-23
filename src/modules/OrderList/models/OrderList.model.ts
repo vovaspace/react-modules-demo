@@ -2,8 +2,8 @@ import { injectable, inject } from 'inversify';
 import { makeObservable, observable, flow } from 'mobx';
 
 import { SYMBOLS as CORE_SYMBOLS } from '@core/symbols.ioc';
-import { OrderModel } from '@core/models';
-import { OrderService } from '@core/services';
+import type { OrderModel } from '@core/models';
+import type { OrderService } from '@core/services';
 
 export interface OrderListModel {
   isLoading: boolean;

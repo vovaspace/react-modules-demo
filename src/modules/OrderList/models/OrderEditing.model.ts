@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import { makeObservable, observable, action } from 'mobx';
 
-import { OrderModel } from '@core/models';
+import type { OrderModel } from '@core/models';
 
 export interface OrderEditingModel {
   order: OrderModel | null;
@@ -17,6 +17,9 @@ export class OrderEditingModel implements OrderEditingModel {
   public isActive: boolean = false;
 
   constructor() {
+    this.startEditing = this.startEditing.bind(this);
+    this.endEditing = this.endEditing.bind(this);
+
     makeObservable(this, {
       order: observable,
       isActive: observable,

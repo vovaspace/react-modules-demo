@@ -3,9 +3,10 @@ import React, { FunctionComponent, ReactNode } from 'react';
 export interface ModalProps {
   children: () => ReactNode;
   isOpen: boolean;
+  onClose: () => void;
 }
 
-export const Modal: FunctionComponent<ModalProps> = ({ children, isOpen }) => (isOpen ? (
+export const Modal: FunctionComponent<ModalProps> = ({ children, isOpen, onClose }) => (isOpen ? (
   <div
     style={{
       position: 'absolute',
@@ -19,5 +20,14 @@ export const Modal: FunctionComponent<ModalProps> = ({ children, isOpen }) => (i
     }}
   >
     {children()}
+    <footer
+      style={{
+        paddingTop: 16,
+        marginTop: 16,
+        borderTop: '1px solid lightgray',
+      }}
+    >
+      <button type="button" onClick={onClose}>Close</button>
+    </footer>
   </div>
 ) : null);
