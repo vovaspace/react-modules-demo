@@ -7,4 +7,4 @@ export const App: FunctionComponent = () => (
     <h1>React Modules Demo</h1>
     <OrderListModule />
   </main>
-)
+);

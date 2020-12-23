@@ -1,12 +1,14 @@
-
 import React, { FunctionComponent, useContext, useMemo } from 'react';
 import { Container, interfaces } from 'inversify';
 
 interface IoCProviderProps {
   module: interfaces.ContainerModule;
-};
+}
 
-const createContainer = (module: interfaces.ContainerModule, parent: interfaces.Container | null): interfaces.Container => {
+const createContainer = (
+  module: interfaces.ContainerModule,
+  parent: interfaces.Container | null,
+): interfaces.Container => {
   const container: interfaces.Container = new Container();
   container.load(module);
 
@@ -15,12 +17,12 @@ const createContainer = (module: interfaces.ContainerModule, parent: interfaces.
   }
 
   return container;
-}
+};
 
 const IoCContext = React.createContext<interfaces.Container | null>(null);
 
 export const IoCProvider: FunctionComponent<IoCProviderProps> = (props) => {
-  const { module } = props;
+  const { children, module } = props;
 
   const contextContainer = useContext(IoCContext);
   const container = useMemo(
@@ -30,7 +32,7 @@ export const IoCProvider: FunctionComponent<IoCProviderProps> = (props) => {
 
   return (
     <IoCContext.Provider value={container}>
-      {props.children}
+      {children}
     </IoCContext.Provider>
   );
 };
@@ -46,4 +48,4 @@ export function useInjection<T>(identifier: interfaces.ServiceIdentifier<T>) {
     () => container.get<T>(identifier),
     [identifier, container],
   );
-};
+}

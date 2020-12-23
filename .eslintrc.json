@@ -4,6 +4,8 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off",
+    "jsx-a11y/control-has-associated-label": "off"
   }
 }

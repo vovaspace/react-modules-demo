@@ -1,8 +1,10 @@
 import { injectable, inject } from 'inversify';
 
 import { SYMBOLS } from '../symbols.ioc';
-import { OrderModel, OrderStatusEnum } from '../models';
-import { FetchService } from '.';
+import type { OrderModel } from '../models';
+import { OrderStatusEnum } from '../models';
+
+import { FetchService } from './Fetch.service';
 
 export interface OrderService {
   toggle(status: OrderStatusEnum): Promise<OrderStatusEnum>;
@@ -26,9 +28,7 @@ export class OrderService implements OrderService {
     }
 
     return this.fetchService.put(OrderStatusEnum.New);
-  }
+  };
 
-  public create = () => {
-    return this.fetchService.put(this.orderModelFactory());
-  }
+  public create = () => this.fetchService.put(this.orderModelFactory());
 }

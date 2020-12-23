@@ -3,7 +3,7 @@ import { flow, makeObservable, observable } from 'mobx';
 
 import { SYMBOLS } from '../symbols.ioc';
 import { UuidGetter } from '../utils';
-import { OrderService } from '../services';
+import type { OrderService } from '../services';
 
 export enum OrderStatusEnum {
   New = 'NEW',
@@ -23,9 +23,13 @@ export interface OrderModel {
 @injectable()
 export class OrderModel implements OrderModel {
   public id = this.uuid();
+
   public isLoading = false;
+
   public name = 'Unnamed';
+
   public status = OrderStatusEnum.New;
+
   public createdAt = new Date();
 
   constructor(
@@ -42,7 +46,7 @@ export class OrderModel implements OrderModel {
     });
   }
 
-  public *toggleStatus() {
+  public* toggleStatus() {
     this.isLoading = true;
     this.status = yield this.orderService.toggle(this.status);
     this.isLoading = false;

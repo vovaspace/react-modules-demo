@@ -5,7 +5,7 @@ export interface ModalProps {
   isOpen: boolean;
 }
 
-export const Modal: FunctionComponent<ModalProps> = ({ children, isOpen }) => isOpen ? (
+export const Modal: FunctionComponent<ModalProps> = ({ children, isOpen }) => (isOpen ? (
   <div
     style={{
       position: 'absolute',
@@ -20,4 +20,4 @@ export const Modal: FunctionComponent<ModalProps> = ({ children, isOpen }) => is
   >
     {children()}
   </div>
-) : null;
+) : null);

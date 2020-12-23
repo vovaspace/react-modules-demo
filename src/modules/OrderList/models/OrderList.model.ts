@@ -14,6 +14,7 @@ export interface OrderListModel {
 @injectable()
 export class OrderListModel implements OrderListModel {
   public isLoading: boolean = false;
+
   public orders: OrderModel[] = [];
 
   constructor(
@@ -30,7 +31,7 @@ export class OrderListModel implements OrderListModel {
     this.addOrder();
   }
 
-  public *addOrder() {
+  public* addOrder() {
     this.isLoading = true;
     const order = yield this.orderService.create();
     this.orders.push(order);

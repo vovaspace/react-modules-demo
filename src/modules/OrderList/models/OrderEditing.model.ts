@@ -13,6 +13,7 @@ export interface OrderEditingModel {
 @injectable()
 export class OrderEditingModel implements OrderEditingModel {
   public order: OrderModel | null = null;
+
   public isActive: boolean = false;
 
   constructor() {

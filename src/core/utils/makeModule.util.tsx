@@ -27,8 +27,7 @@ export const makeModule = (params: MakeModuleParams): FunctionComponent => () =>
       try {
         const [component, module] = await Promise.all([componentImport(), moduleImport()]);
         setDependencies({ component: component.default, module: module.default });
-      } catch(error) {
-        console.error(error);
+      } catch (error) {
         setHasError(true);
       }
     };

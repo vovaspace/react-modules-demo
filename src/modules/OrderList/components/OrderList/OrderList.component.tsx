@@ -20,7 +20,8 @@ export const OrderList: FunctionComponent = observer(() => {
         width: '100%',
         padding: 8,
         border: '1px solid black',
-      }}>
+      }}
+      >
         <thead style={{ textAlign: 'left' }}>
           <tr style={{ borderBottom: '1px solid gray' }}>
             <th style={{ width: 80, padding: 8 }}>ID</th>
